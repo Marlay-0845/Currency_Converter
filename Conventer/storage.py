@@ -21,7 +21,7 @@ def storage(date, to_currency):
     with open(file_path1, 'w', encoding='utf-8') as json_file:
         json.dump(data, json_file, indent=2)
 
-        print(f"Файл сохранён по пути: {file_path1}")
+        print(f"The file is saved at: {file_path1}")
 
 
     with open(file_path2, 'w', encoding="cp1251", newline='') as csv_file:
@@ -33,4 +33,4 @@ def storage(date, to_currency):
         writer = csv.writer(csv_file, delimiter=';')
         writer.writerow([data["base"], to_currency, data["amount"], data["date"], data["rates"][f"{to_currency}"]])
 
-        print(f"Файл сохранён по пути: {file_path2}")
+        print(f"The file is saved at: {file_path2}")
