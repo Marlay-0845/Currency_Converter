@@ -1,5 +1,6 @@
 from Conventer.api_handler_conventer import handler
 from Conventer.storage import storage
+from Conventer.logger_config import setup_logger
 
 
 while True:
@@ -9,12 +10,12 @@ while True:
     try:
         amount_choise = float(input("Enter amount: "))
         if amount_choise <= 0:
-            print("The amount must be greater than zero!")
+            setup_logger().error("The amount must be greater than zero!")
             continue
         break
 
     except ValueError:
-        print("Enter a number!")
+        setup_logger().error("Invalid input for amount. Please enter a numeric value.")
 
 date = handler(fromcurrency=from_currency_choise, tocurrency=to_currency_choise, amount=amount_choise)
 
@@ -22,7 +23,7 @@ date = handler(fromcurrency=from_currency_choise, tocurrency=to_currency_choise,
 if date:
     storage(date=date, to_currency=to_currency_choise)
 else:
-    print("Data not received!")
+    setup_logger().error("Data not received!")
 
 
 
