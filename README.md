@@ -15,7 +15,7 @@ Functionality
 Installation
 
 1. Clone the repository:
-   git clone https://github.com/username/currency-converter.git
+   git clone https://github.com/Marlay-0845/Currency_Converter.git
    cd currency-converter
 
 2. Install dependencies:
